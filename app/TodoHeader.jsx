@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { Keyboard } from "react-native"
+
 import { Input, Button, HStack } from "native-base"
 
 export default function TodoHeader({ setToDoItems, user}) {
@@ -7,6 +9,7 @@ export default function TodoHeader({ setToDoItems, user}) {
 
     const addNewItem = () => {
         if(newItem.length < 3) return
+        setLoading(true)
         const newTodoItem = {
             uid: user.uid,
             title: newItem,
